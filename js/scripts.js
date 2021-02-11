@@ -9,5 +9,19 @@ function makeList(groceryArray) {
   })
 }
 
+$(document).ready(function() {
+  $("#formList").submit(function(event) {
+    event.preventDefault();
 
+    let listArray = ["item1", "item2", "item3"];
+    let groceryArray = [];
+
+    listArray.forEach(function(item) {
+      let groceryItem = $("#" + item).val();    
+      groceryArray.push(groceryItem);
+    });
+    makeList(groceryArray);
+    $("#listEntry").hide();
+    $("div#output").show();
+  });
 });
